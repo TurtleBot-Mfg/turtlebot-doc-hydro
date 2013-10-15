@@ -68,13 +68,41 @@
         <p><div><center><img src="imgs/wificonf.png" width="182" height="247"/></center></div>
         <br/>
         <p>The primary requirement for getting your TurtleBot running is that is needs to be connected to a network so that you can operate it remotely. You can use the Network Manager in the upper right corner of your screen to connect to a WiFi, Ethernet or cellular network. Once connected, the startup scripts will autodetect the current network interface and start ROS. Once a network configuration is setup, the laptop can be closed and placed in the TurtleBot.</p>
-
-      <h3>Step 2: Run Teleop</h3>
+      <h3>Step 2: Bring up TurtleBot</h3>
+        <p>Once the network is setup the robot can operate. TurtleBot provides three different ways of bringup. You can choose one of these methods to start up TurtleBot for your purpose. We recommend to use <i>App Manager</i> for ROS Beginners and <i>Android Enabled</i> for Android app users.</p>
         <p>
+        <i><strong>Minimal</strong></i> : This starts up TurtleBot with your garden variety single master ros environment in which all processes can be started/stopped via roslaunchers.
         </p>
+        <code>
+          > roslaunch turtlebot_bringup minimal.launch
+        </code>
+        <p>
+        <i><strong>App Manager</strong></i> : can do everything minimal does, but also offers the option of managing your programs as robot apps via the app manager
+        </p>
+        <code>
+          > roslaunch turtlebot_bringup minimal_with_appmanager.launch
+        </code>
+        <p>
+        <i><strong>Android Enabled</strong></i> : starts private/public masters and allows the app manager to be controlled by a remote android device via the public master
+        </p>
+        <code>
+          > rocon_launch turtlebot_bringup bringup.concert
+        </code>
+        <br/>
+        <br/>
+        
+      <h3>Step 3: Run Teleop</h3>
+        <p> Following command allows to teleop your TurtleBot with keyboard. Assume that TurtleBot has started in <i>Minimal</i> or <i>AppManager</i> </p>
+        <code>
+          > roslaunch turtlebot_teleop keyboard_teleop.launch
+        </code>
+        <p><a href="imgs/teleop.png"><img src="imgs/teleop.png" width="500" height="300"/></a>
+        <br/>
+        <p> For remote teleoperation, please refer to <a href="http://wiki.ros.org/turtlebot/Tutorials/hydro/Workstation%20Installation">Workstation Installtion</a> tutorials</p>
 
-      <h3>Step 3: Run More Demos!</h3>
-        <p>Once the network is setup the robot can run several demos include <a href="http://wiki.ros.org/turtlebot_teleop">Teleoperation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.</p>
+
+      <h3>Step 4: Run More Demos!</h3>
+        <p>The robot can run several demos include <a href="http://wiki.ros.org/turtlebot_navigation/Tutorials">Navigation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.</p>
   </div>
 
   <!-- Software Notes -->
@@ -96,7 +124,7 @@
         </ul>
         </p>
         <p>
-        Once connected, remocon displays a list of the app pairs (robot and android) that you can start/stop remotely. TurtleBot provides the following default apps.
+        Once connected, remocon displays a list of the app pairs (robot and android) that you can start/stop remotely. TurtleBot provides the following default apps. 
       </p>
       <ul>
         <li><a href="https://play.google.com/store/apps/details?id=com.github.rosjava.android_apps.teleop">Android Teleop</a></li>
@@ -104,6 +132,9 @@
         <li><a href="https://play.google.com/store/apps/details?id=com.github.rosjava.android_apps.map_nav">Map Nav</a></li>
         <li><a href="https://play.google.com/store/apps/details?id=com.github.turtlebot.turtlebot_android.follower">TurtleBot Follower</a></li>
       </ul>
+      <p>
+      Note that robot should start up <i>Android Enabled</i>
+      </p>
         
       <!-- Turtlebot Dashboard -->
       <h3>TurtleBot Dashboard</h3>
@@ -132,9 +163,7 @@
           <li><a href="http://www.irobot.com/us/learn/Educators/Create.aspx">Create Website</a></li>
           <li><a href="http://wiki.ros.org/turtlebot_create">Create ROS Wiki</a></li>
         </ul>
-
   </div>
-
   <div>
     <h2>Online Resources</h2>
       <p>Here are a selection of useful resources for working with the TurtleBot</p>
