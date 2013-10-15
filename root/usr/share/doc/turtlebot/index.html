@@ -46,12 +46,13 @@
         Welcome to the TurtleBot Quick Start Guide.<br>
     <blockquote>
       <p> 
-        <h1>
+        TurtleBot is a low-cost, personal robot kit with open-source software. With TurtleBot, you'll be able to build a robot that can drive around your house, see in 3D, and have enough horsepower to create exciting applications.
+        This guide provides a few tips and tricks for working with the TurtleBot and links to several online resource.
+
         <!--  turtlebot-hydro-ubuntu-12.04.2-R0
           The R0 release is an interim release
           ROS DOES NOT START AUTOMATICALLY IN R0
           <hr/>-->
-          This guide has a few tips and tricks for working with the TurtleBot and links to several online resource.
         </h1>
       </p>
     </blockquote>
@@ -67,6 +68,7 @@
         <p><div><center><img src="imgs/wificonf.png" width="182" height="247"/></center></div>
         <br/>
         <p>The TurtleBot is preconfigured to start ROS and all of the minimum required services for basic operation at bootup. The primary requirement for getting your TurtleBot running is that is needs to be connected to a network so that you can operate it remotely. You can use the Network Manager in the upper right corner of your screen to connect to a WiFi, Ethernet or cellular network. Once connected, the startup scripts will autodetect the current network interface and start ROS. Once a network configuration is setup, the laptop can be closed and placed in the TurtleBot.</p>
+
       <h3>Step 2: Run Demos</h3>
         <p>Once the network is setup the robot can run several demos include <a href="http://wiki.ros.org/turtlebot_teleop">Teleoperation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.</p>
   </div>
@@ -104,33 +106,43 @@
       <p>The <a href="http://www.ros.org/wiki/turtlebot_dashboard">TurtleBot Dashboard</a> provides a wide range of diagnostic information, including the current battery levels for the robot base and the laptop and the state of the power breakers. This GUI can be run locally on the robot or on a workstation that has been configured to use the TurtleBot as the ROS Master.</p>
       <img src="imgs/turtlebot_dashboard.png" width="600" height="400"/>
 
-      <!-- Create calibration -->
   </div>
 
   <!-- Hardware Notes -->
   <div>
     <h2> Hardware Notes </h2>
       <h4> YujinRobot Kobuki</h4>
-        <p> Kobuki has been designed with continous operation in mind, so the robot is fully operation while charging. Indeed, it can recharge the controlling laptop together wuth the robot, as long as the power cable probided with Turtlebot 2 is plugged. </p>
+        <p> Kobuki has been designed with continous operation in mind, so the robot is fully operation while charging. Indeed, it can recharge the controlling laptop together with the robot, as long as the power cable provided with TurtleBot 2 is plugged. </p>
+        <ul>
+          <li><a href="http://kobuki.yujinrobot.com">Kobuki Website</a></li>
+          <li><a href="http://kobuki.yujinrobot.com/home-en/documentation">Kobuki Documentation</a></li>
+          <li><a href="http://wiki.ros.org/kobuki">Kobuki ROS Wiki</a></li>
+        </ul>
 
       <h4>iRobot Create</h4>
         <p> <strong>Charging</strong> : When Turtlebots are charging, their power indicator lights fades on and off, it the light is not fading in and out your robot is not charging. If you have trouble charging the robot, we suggest disconnecting power to the Create, removing the serial connection and turning the Create off before reconnecting the charger. As the indicator light may turn off when the Create is on, we suggest turning the Create back on before turning it off to make sure the Create is actually off.<p>
-        <p> <strong>Kinect Power</strong> : The iRobot Create is limited to providing 1.5 Amps at 12 Volts via the power connector. Due to this limitation, the Kinect power output must be disabled for the robot to charge. Otherwise, devices such as a Kinect can discharge the battery faster than it can able to charge which may damage the battery. To prevent this, the power output is disabled in software by default and must be enabled to operate the Kinect. More information can be found <a href="http://www.ros.org/wiki/turtlebot_dashboard">here</a> or by looking at the <a href="/opt/ros/fuerte/stacks/turtlebot/turtlebot_bringup/kinect.launch">kinect.launch</a> file in the turtlebot_bringup package.</p>
+        <p> <strong>Kinect Power</strong> : The iRobot Create is limited to providing 1.5 Amps at 12 Volts via the power connector. Due to this limitation, the Kinect power output must be disabled for the robot to charge. Otherwise, devices such as a Kinect can discharge the battery faster than it can able to charge which may damage the battery. To prevent this, the power output is disabled in software by default and must be enabled to operate the Kinect. 
         <p> <strong>Calibration</strong> : iRobot Create based TurtleBots equipped with a gyro can use the <a href="http://www.ros.org/wiki/turtlebot_calibration">turtlebot_calibration</a> package to achieve the best odometry. If your robot has a gyro that is has a maximum yaw rate that is not 250&deg;/sec, you will need to set the gyro_measurement_range parameter in the launch file before attempting calibration. See this <a href="https://kforge.ros.org/turtlebot/trac/ticket/111">ticket</a> or this <a href="http://answers.ros.org/question/12446/turtlebot-slam-map-building-problems/">question</a> on ROS Answers for more information.</p>
-  </div>
 
+        <ul>
+          <li><a href="http://www.irobot.com/us/learn/Educators/Create.aspx">Create Website</a></li>
+          <li><a href="http://wiki.ros.org/turtlebot_create">Create ROS Wiki</a></li>
+        </ul>
+
+  </div>
 
   <div>
     <h2>Online Resources</h2>
       <p>Here are a selection of useful resources for working with the TurtleBot</p>
       <p>
         <ul>
-          <li><a href="http://www.ros.org/wiki/ROS/Tutorials">ROS Tutorials</A>
+          <li><a href="http://www.turtlebot.com">turtlebot.com</a></li>
           <li><a href="http://www.ros.org/wiki/Robots/TurtleBot">TurtleBot Wiki</a>
           <li><a href="http://turtlebot.com/build.html">TurtleBot Hardware Docs</a>
-          <li><a href="http://answers.ros.org">ROS Answers - Q&A support system</a>
           <li><a href="https://github.com/turtlebot/turtlebot/issues">TurtleBot Bug Tracker</a>
           <li><a href="http://www.thingiverse.com/tag:TurtleBot">3D Printable TurtleBot Accessories</a>
+          <li><a href="http://www.ros.org/wiki/ROS/Tutorials">ROS Tutorials</A>
+          <li><a href="http://answers.ros.org">ROS Answers - Q&A support system</a>
           <li><a href="https://code.ros.org/mailman/listinfo/ros-users">ros-users mailing list</a>
           <li><a href="https://groups.google.com/forum/?fromgroups#!forum/ros-sig-turtlebot">turtlebot-users mailing list</a>
         </ul>
