@@ -68,6 +68,16 @@
         <p><div><center><img src="imgs/wificonf.png" width="182" height="247"/></center></div>
         <br/>
         <p>The primary requirement for getting your TurtleBot running is that is needs to be connected to a network so that you can operate it remotely. You can use the Network Manager in the upper right corner of your screen to connect to a WiFi, Ethernet or cellular network. Once connected, the startup scripts will autodetect the current network interface and start ROS. Once a network configuration is setup, the laptop can be closed and placed in the TurtleBot.</p>
+        <p>Additionally, <i>ROS_HOSTNAME</i> and <i>ROS_MASTER_URI</i> environment variables in robot should be set to work with remote workstation. IP_OF_TURTLEBOT should be replaced of real ip address</p>
+
+        <code>
+          echo export ROS_MASTER_URI=http://IP_OF_TURTLEBOT:11311 >> ~/.bashrc <br/>
+          echo export ROS_HOSTNAME=IP_OF_TURTLEBOT >> ~/.bashrc
+        </code>
+
+
+
+        
       <h3>Step 2: Bring up TurtleBot</h3>
         <p>Once the network is setup the robot can operate. TurtleBot provides three different ways of bringup. You can choose one of these methods to start up TurtleBot for your purpose. We recommend to use <i>App Manager</i> for ROS Beginners and <i>Android Enabled</i> for Android app users.</p>
         <p>
