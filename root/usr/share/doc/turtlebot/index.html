@@ -67,9 +67,53 @@
         <p><div><center><img src="imgs/wificonf.png" width="182" height="247"/></center></div>
         <br/>
         <p>The primary requirement for getting your TurtleBot running is that is needs to be connected to a network so that you can operate it remotely. You can use the Network Manager in the upper right corner of your screen to connect to a WiFi, Ethernet or cellular network. <s>Once connected, the startup scripts will autodetect the current network interface and start ROS. Once a network configuration is setup,</s><i>(Currently disabled in R0)</i> After the network is started, <a href="http://wiki.ros.org/turtlebot_bringup/Tutorials/hydro/TurtleBot%20Bringup">ROS can be started from a terminal</a> and then the laptop can be closed and placed in the TurtleBot.</p>
+        <p>Additionally, <i>ROS_HOSTNAME</i> and <i>ROS_MASTER_URI</i> environment variables in robot should be set to work with remote workstation. IP_OF_TURTLEBOT should be replaced of real ip address</p>
 
-      <h3>Step 2: Run Demos!</h3>
-        <p>Once the network is setup the robot can run several demos include <a href="http://wiki.ros.org/turtlebot_teleop">Teleoperation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.</p>
+        <code>
+          > echo export ROS_MASTER_URI=http://IP_OF_TURTLEBOT:11311 >> ~/.bashrc <br/>
+          > echo export ROS_HOSTNAME=IP_OF_TURTLEBOT >> ~/.bashrc
+        </code>
+
+      <h3>Step 2: Bring up TurtleBot</h3>
+        <p>Once the network is setup the robot can operate. TurtleBot provides three different ways of bringup. You can choose one of these methods to start up TurtleBot for your purpose. We recommend to use <i>App Manager</i> for ROS Beginners and <i>Android Enabled</i> for Android app users.</p>
+        <p>
+        <i><strong>Minimal</strong></i> : This starts up TurtleBot with your garden variety single master ros environment in which all processes can be started/stopped via roslaunchers.
+        </p>
+        <code>
+          > roslaunch turtlebot_bringup minimal.launch                                                                                                                                                                                                                                                                                                                 
+        </code>
+        <p>
+        <i><strong>App Manager</strong></i> : can do everything minimal does, but also offers the option of managing your programs as robot apps via the app manager
+        </p>
+        <code>
+          > roslaunch turtlebot_bringup minimal_with_appmanager.launch
+        </code>
+        <p>
+        <i><strong>Android Enabled</strong></i> : starts private/public masters and allows the app manager to be controlled by a remote android device via the public master
+        </p>
+        <code>
+          > rocon_launch turtlebot_bringup bringup.concert
+        </code>
+        <br/>
+        <br/>
+        
+      <h3>Step 3: Run Teleop</h3>
+        <p> Following command allows to teleop your TurtleBot with keyboard. Assume that TurtleBot has started in <i>Minimal</i> or <i>AppManager</i> </p>
+        <code>
+          > roslaunch turtlebot_teleop keyboard_teleop.launch
+        </code>
+        <p><a href="imgs/teleop.png"><img src="imgs/teleop.png" width="500" height="300"/></a>
+        <br/>
+        <p> For remote teleoperation, please refer to <a href="http://wiki.ros.org/turtlebot/Tutorials/hydro/Workstation%20Installation">Workstation Installtion</a> tutorials</p>
+
+      <h3>Step 4: Run More Demos!</h3>
+        <p>The robot can run several demos include <a href="http://wiki.ros.org/turtlebot_navigation/Tutorials">Navigation</a> and <a href="http://www.ros.org/wiki/turtlebot_follower/Tutorials/Demo">People Following</a>. We suggest starting with these demos to gather experimental data on the robot's performance.</p>
+
+      <h3>Step 5: Bringup 3D Sensor</h3>
+        <p>3D Sensor provided by TurtleBot does not start with bringup commands to save powers and netbook performance. It ususally starts up when apps are starting with custom configuration. You can start 3D Sensor with following command. Note that some 3D Sensors may not work with usb 3.0 port. Please make sure to use usb 2.0 for those devices</p>
+        <code>
+          > roslaunch turtlebot_bringup 3dsensor.launch
+        </code>
   </div>
 
   <!-- Software Notes -->
@@ -105,6 +149,16 @@
       <p>The <a href="http://www.ros.org/wiki/turtlebot_dashboard">TurtleBot Dashboard</a> provides a wide range of diagnostic information, including the current battery levels for the robot base and the laptop and the state of the power breakers. This GUI can be run locally on the robot or on a workstation that has been configured to use the TurtleBot as the ROS Master.</p>
       <img src="imgs/turtlebot_dashboard.png" width="600" height="400"/>
 
+      <h3>Rviz</h3>
+      <p>The <a href="http://wiki.ros.org/rviz">Rviz</a> is a 3D visualzation tool for ROS which allows to introspect the internal data stream in ros. <a href="http://wiki.ros.org/turtlebot_rviz_launchers">turtlebot_rviz_launchers</a> provides preconfigured launchers to visualize and introspect status of TurtleBot easily.</p> 
+      <p>
+      <ul>
+        <li>View Robot      : roslaunch turtlebot_rviz_lauchers view_robot.launch </li>
+        <li>View Navigation : roslaunch turtlebot_rviz_lauchers view_navigation.launch </li>
+        <li>View Model      : roslaunch turtlebot_rviz_lauchers view_model.launch </li>
+      </ul>
+      </p>
+      <img src="imgs/rviz_capture.png" width="600" height="400"/>
   </div>
 
   <!-- Hardware Notes -->
