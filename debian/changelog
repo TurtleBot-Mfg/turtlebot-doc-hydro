@@ -1,3 +1,16 @@
+turtlebot-doc-hydro (0.0.7) precise; urgency=low
+
+  [ NE Automation ]
+  * Forked for hydro, maintainer updated, and initial doc fix
+
+  [ Jihoon Lee ]
+  * removing PDFs
+  * updating docs
+  * updating hello
+  * polihing setup network description
+
+ -- NE Automation <code@neautomation.com>  Tue, 15 Oct 2013 21:34:28 -0400
+
 turtlebot-doc-hydro (0.0.6) precise; urgency=low
 
   * updated mailing list for ros-sig-turtlebot
